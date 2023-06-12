@@ -78,12 +78,12 @@ for i in range(len(glyphs)):
 
 def most_frequent(List):
     res = max(set(List), key = List.count)
-    print(res)
+    #print(res)
     max_count = List.count(res)
     first_el = List[0]  
     if(List.count(first_el) == max_count):
         res = first_el
-        print("zwracamy: ", res)
+        #print("zwracamy: ", res)
     return res
 
 @lru_cache(maxsize=None)
@@ -107,7 +107,7 @@ class KNN:
     def predict(self, sample):
         dists = []
         for j,d in enumerate(self.data):
-            print(j)
+            #print(j)
             dists.append(self.dist_func(tuple(sample), tuple(d.data)))
         dists = np.array(dists)
         neighbors = [self.data[i] for i in np.argsort(dists)[:self.k]]
@@ -157,7 +157,7 @@ for i in range(len(idxs_to_test)):
 out = 'res.txt'
 
 def run_test():
-    for i in range(len(set_to_test)):
+    for i in range(satart_idx, len(set_to_test)):
         print(f'{i}/{len(set_to_test)}')
         ans = []
         for k in [1, 5, 10, 15, 27, 49]:
