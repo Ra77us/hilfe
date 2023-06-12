@@ -151,7 +151,7 @@ for i in range(len(idxs_to_fit)):
 
 for i in range(len(idxs_to_test)):
     set_to_test.append(letters[idxs_to_test[i]])
-    labels_to_test.append(labels_int[idxs_to_fit[i]])
+    labels_to_test.append(labels_int[idxs_to_test[i]])
 
 
 out = 'res.txt'
@@ -169,5 +169,5 @@ def run_test():
             line += (f'{a[0]},{a[1]};')
         with open(out, "a") as myfile:
             myfile.write(line + '\n')
-
+print(set(labels_to_test))
 run_test()
