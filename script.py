@@ -8,7 +8,7 @@ import math
 from more_itertools import locate
 
 satart_idx = int(sys.argv[1])
-
+print(np.__version__)
 root_path = './' # you can change it to './' to make all files relative to current path, or use your drive path in Google colab
 labels_file ='out_labels.json'
 normalized_data_file = 'out_normalized_glyphs.json'
@@ -154,14 +154,14 @@ for i in range(len(idxs_to_test)):
     labels_to_test.append(labels_int[idxs_to_fit[i]])
 
 
-out = 'resu.txt'
+out = 'res.txt'
 
 def run_test():
     for i in range(len(set_to_test)):
         print(f'{i}/{len(set_to_test)}')
         ans = []
         for k in [1, 5, 10, 15, 27, 49]:
-            knn = KNN(np.array(set_to_fit[:1]), np.array(labels_to_fit[:1]), k, my_dist)
+            knn = KNN(np.array(set_to_fit), np.array(labels_to_fit), k, my_dist)
             idx = knn.predict(set_to_test[i])
             ans.append((idx, idx == labels_to_test[i]))
         line = f'{i} {inv_map[labels_to_test[i]]}:'
